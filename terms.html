@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Together — Terms of Service</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #fff5f7;
+    color: #2a1a22;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 24px 80px; }
+  .lang-switch {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .lang-switch button {
+    padding: 8px 16px;
+    border: 1.5px solid #ffc1d8;
+    background: #fff;
+    color: #c2185b;
+    border-radius: 100px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .lang-switch button:hover { background: #fff0f5; }
+  .lang-switch button.on { background: #ff6b9d; color: #fff; border-color: #ff6b9d; }
+  h1 {
+    font-size: 28px; color: #c2185b;
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .meta { color: #b58a99; font-size: 13px; margin: 0 0 24px; }
+  h2 {
+    font-size: 18px; color: #c2185b;
+    margin: 28px 0 10px;
+    font-weight: 600;
+  }
+  p, .body {
+    font-size: 15px;
+    white-space: pre-wrap;
+    margin: 0 0 12px;
+  }
+  .intro {
+    padding: 16px 20px;
+    background: #fff;
+    border-left: 4px solid #ff6b9d;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  a { color: #c2185b; }
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid #ffe0ec;
+    font-size: 13px; color: #8b6571;
+    text-align: center;
+  }
+  .footer a { margin: 0 8px; }
+  @media (max-width: 480px) {
+    .wrap { padding: 20px 16px 60px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 16px; }
+    p, .body { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lang-switch">
+    <button data-lang="zh-CN" class="on">简体中文</button>
+    <button data-lang="zh-TW">繁體中文</button>
+    <button data-lang="en">English</button>
+    <button data-lang="ms">B. Melayu</button>
+  </div>
+  <h1 id="title"></h1>
+  <p class="meta"><span id="updated"></span> 2026-05-18</p>
+  <div class="intro"><p id="intro"></p></div>
+  <div id="sections"></div>
+  <div class="footer">
+    © 2026 Together · <a href="privacy.html">Privacy Policy</a> · khootaipping@gmail.com
+  </div>
+</div>
+
+<script>
+const DATA = {
+  'zh-CN': {
+    title: 'Together 用户协议',
+    updated: '最近更新：',
+    intro: '欢迎使用 Together。在使用本服务前，请仔细阅读本协议。注册或继续使用即视为你同意以下条款。',
+    sections: [
+      { t: '1. 服务说明', b: 'Together 是一款为情侣提供的虚拟陪伴 App，提供共同房间、留言、聊天、AI 代答、虚拟装饰等功能。服务"按现状"提供，我们会尽力保持稳定但不保证 100% 可用。' },
+      { t: '2. 账号', b: '• 你需要使用真实有效的邮箱注册账号。\n• 你对账号下的所有活动负责，请妥善保管密码。\n• 一个账号同时只能绑定一位伴侣。解绑或换绑可能涉及数据丢失，请慎重操作。' },
+      { t: '3. 行为规范', b: '使用本服务时，你不得：\n• 发布违法、暴力、色情、骚扰、仇恨、欺诈内容；\n• 冒充他人或盗用他人账号；\n• 使用自动化脚本、爬虫、外挂、修改器；\n• 利用漏洞获取本应虚拟道具或干扰他人正常使用；\n• 滥用 AI 代答功能（如恶意刷调用次数）。\n违反上述规则的账号可能被警告、限制功能或永久封禁。' },
+      { t: '4. AI 代答说明', b: 'AI 代答功能仅供娱乐。AI 生成的内容不代表你伴侣的真实想法，仅基于你导入的聊天历史学习出的"说话风格"模拟。启用个性化 AI 前，你应确保对方知情并同意；不得导入无权使用的第三方聊天、群聊或敏感记录。请勿基于 AI 回复做出重要决定（如分手、和解、转账等）。' },
+      { t: '5. 知识产权', b: '本应用内的所有素材（角色、房间皮肤、装饰、UI 设计、代码）的著作权归我们所有。你可在 App 内正常使用，但不得提取、二次分发或用于商业目的。你在 App 内创作的内容（如自己写的留言、消息）著作权归你所有。' },
+      { t: '6. 责任限制', b: '在法律允许的最大范围内，对以下情形我们不承担责任：\n• 因不可抗力（停电、网络故障、服务商问题）导致的数据丢失或服务中断；\n• 因第三方服务（AI 服务商、推送服务）变更或故障导致的功能异常；\n• 因你与伴侣之间的情感纠纷、误会、分手等导致的任何后果；\n• 因你违反本协议导致的损失。' },
+      { t: '7. 协议变更与终止', b: '本协议可能因业务调整而更新，重大变更会在 App 内通知。你可随时请求注销账号停止使用。我们也保留在你违反协议时终止或限制账号的权利，但不会排除法律强制赋予你的消费者权利。' },
+      { t: '8. 年龄与监护人', b: '本服务不面向 13 岁以下儿童。若你未达到所在地法律规定的成年年龄，应在监护人同意和指导下使用本服务。监护人可通过隐私政策中的联系方式请求删除未成年人数据。' },
+      { t: '9. 虚拟物品与费用', b: '金币、装饰、房间皮肤、角色、互动效果等虚拟物品仅供应用内娱乐使用，不具有现金价值，不可私下交易、兑现或转让。若未来接入付费项目，退款和订阅将同时受对应应用商店规则约束。因漏洞、作弊或异常获得的虚拟物品，我们可在合理范围内更正。' }
+    ]
+  },
+  'zh-TW': {
+    title: 'Together 使用者協議',
+    updated: '最近更新：',
+    intro: '歡迎使用 Together。在使用本服務前，請仔細閱讀本協議。註冊或繼續使用即視為你同意以下條款。',
+    sections: [
+      { t: '1. 服務說明', b: 'Together 是一款為情侶提供的虛擬陪伴 App，提供共同房間、留言、聊天、AI 代答、虛擬裝飾等功能。服務「按現狀」提供，我們會盡力保持穩定但不保證 100% 可用。' },
+      { t: '2. 帳號', b: '• 你需要使用真實有效的信箱註冊帳號。\n• 你對帳號下的所有活動負責，請妥善保管密碼。\n• 一個帳號同時只能綁定一位伴侶。解綁或換綁可能涉及資料遺失，請慎重操作。' },
+      { t: '3. 行為規範', b: '使用本服務時，你不得：\n• 發布違法、暴力、色情、騷擾、仇恨、詐欺內容；\n• 冒充他人或盜用他人帳號；\n• 使用自動化指令、爬蟲、外掛、修改器；\n• 利用漏洞取得本應虛擬道具或干擾他人正常使用；\n• 濫用 AI 代答功能（如惡意刷呼叫次數）。\n違反上述規則的帳號可能被警告、限制功能或永久封禁。' },
+      { t: '4. AI 代答說明', b: 'AI 代答功能僅供娛樂。AI 產生的內容不代表你伴侶的真實想法，僅基於你匯入的聊天歷史學習出的「說話風格」模擬。啟用個人化 AI 前，你應確保對方知情並同意；不得匯入無權使用的第三方聊天、群聊或敏感紀錄。請勿基於 AI 回覆做出重要決定（如分手、和解、轉帳等）。' },
+      { t: '5. 智慧財產權', b: '本應用程式內的所有素材（角色、房間樣式、裝飾、UI 設計、程式碼）的著作權歸我們所有。你可在 App 內正常使用，但不得提取、二次散佈或用於商業目的。你在 App 內創作的內容（如自己寫的留言、訊息）著作權歸你所有。' },
+      { t: '6. 責任限制', b: '在法律允許的最大範圍內，對以下情形我們不承擔責任：\n• 因不可抗力（停電、網路故障、服務商問題）導致的資料遺失或服務中斷；\n• 因第三方服務（AI 服務商、推送服務）變更或故障導致的功能異常；\n• 因你與伴侶之間的情感糾紛、誤會、分手等導致的任何後果；\n• 因你違反本協議導致的損失。' },
+      { t: '7. 協議變更與終止', b: '本協議可能因業務調整而更新，重大變更會在 App 內通知。你可隨時請求註銷帳號停止使用。我們也保留在你違反協議時終止或限制帳號的權利，但不會排除法律強制賦予你的消費者權利。' },
+      { t: '8. 年齡與監護人', b: '本服務不面向 13 歲以下兒童。若你未達所在地法律規定的成年年齡，應在監護人同意和指導下使用本服務。監護人可透過隱私政策中的聯絡方式請求刪除未成年人資料。' },
+      { t: '9. 虛擬物品與費用', b: '金幣、裝飾、房間樣式、角色、互動效果等虛擬物品僅供應用程式內娛樂使用，不具有現金價值，不可私下交易、兌現或轉讓。若未來接入付費項目，退款和訂閱將同時受對應應用商店規則約束。因漏洞、作弊或異常取得的虛擬物品，我們可在合理範圍內更正。' }
+    ]
+  },
+  'en': {
+    title: 'Together — Terms of Service',
+    updated: 'Last updated:',
+    intro: 'Welcome to Together. Please read these terms carefully before using the service. By registering or continuing to use the app you agree to the terms below.',
+    sections: [
+      { t: '1. The service', b: 'Together is a virtual companion app for couples, offering a shared room, notes, chat, AI Reply, and virtual decorations. The service is provided "as is"; we will keep it stable to the best of our ability but cannot guarantee 100% availability.' },
+      { t: '2. Account', b: '• Register with a real, valid email.\n• You are responsible for all activity under your account — keep your password safe.\n• An account can be bound to one partner at a time. Unbinding or re-binding may incur data loss; proceed carefully.' },
+      { t: '3. Acceptable use', b: 'When using the service you must not:\n• Post illegal, violent, sexual, harassing, hateful, or fraudulent content;\n• Impersonate others or steal account credentials;\n• Use scripts, scrapers, cheats, or modders;\n• Exploit bugs to gain virtual items or disrupt other users;\n• Abuse the AI Reply function (e.g. spam the rate limit).\nViolating accounts may be warned, throttled, or permanently banned.' },
+      { t: '4. About AI Reply', b: 'AI Reply is for entertainment only. Generated content does not represent your partner\'s real thoughts — it is only an imitation of speaking style learned from chat history you imported. Do not make important decisions (breakup, reconciliation, money transfers, etc.) based on AI replies.' },
+      { t: '5. Intellectual property', b: 'All in-app assets (characters, room skins, decorations, UI design, code) are owned by us. You may use them within the app normally but may not extract, redistribute, or use them commercially. Content you create in the app (notes, messages you wrote) remains yours.' },
+      { t: '6. Limitation of liability', b: 'To the maximum extent permitted by law, we are not liable for:\n• Data loss or service interruption caused by force majeure (power, network, vendor outages);\n• Functional anomalies caused by changes or outages of third-party services (AI providers, push services);\n• Any consequences from emotional disputes, misunderstandings, or breakups between you and your partner;\n• Losses caused by your violation of these terms.' },
+      { t: '7. Changes & termination', b: 'These terms may be updated as the business evolves; material changes will be announced in-app. You may deactivate your account at any time. We reserve the right to terminate or restrict your account if you violate these terms. The final interpretation of these terms belongs to us.' }
+    ]
+  },
+  'ms': {
+    title: 'Together — Terma Perkhidmatan',
+    updated: 'Dikemaskini:',
+    intro: 'Selamat datang ke Together. Baca terma ni dengan teliti sebelum guna service. Dengan register atau terus guna, awak setuju dengan terma di bawah.',
+    sections: [
+      { t: '1. Perkhidmatan', b: 'Together ialah virtual companion app untuk couple — shared room, notes, chat, AI Reply, virtual decorations. Service disediakan "as is"; kami akan cuba pastikan ia stable tapi tak boleh guarantee 100% available.' },
+      { t: '2. Akaun', b: '• Register guna email yang sah dan aktif.\n• Awak responsible untuk semua activity dalam akaun — jaga password baik-baik.\n• Satu akaun boleh bind dengan satu pasangan pada satu masa. Unbind atau re-bind mungkin sebabkan data loss; hati-hati.' },
+      { t: '3. Penggunaan yang dibenarkan', b: 'Bila guna service ni awak tak boleh:\n• Post content yang illegal, ganas, seksual, harassment, hate speech, atau penipuan;\n• Pretend jadi orang lain atau curi akaun orang;\n• Guna script automation, scraper, cheat, atau modder;\n• Exploit bug untuk dapat virtual items atau ganggu user lain;\n• Abuse fungsi AI Reply (spam rate limit).\nAkaun yang langgar boleh diberi warning, diharhad, atau ban kekal.' },
+      { t: '4. Tentang AI Reply', b: 'AI Reply untuk hiburan saja. Content yang AI generate bukan mewakili pendapat sebenar pasangan awak — ia cuma mimic gaya bercakap yang dipelajari dari chat history yang awak import. Jangan buat keputusan penting (putus, baik balik, transfer duit, dll.) berdasarkan AI reply.' },
+      { t: '5. Hak harta intelek', b: 'Semua asset dalam app (character, room skin, deko, UI, code) hak milik kami. Awak boleh guna dalam app secara normal tapi tak boleh extract, redistribute, atau guna untuk commercial. Content yang awak create sendiri (notes, messages awak tulis) hak milik awak.' },
+      { t: '6. Had liabiliti', b: 'Dalam had yang dibenarkan undang-undang, kami tidak liable untuk:\n• Data loss atau service interruption disebabkan force majeure (electricity, network, vendor outage);\n• Functional anomaly disebabkan third-party service (AI provider, push) berubah atau down;\n• Akibat dari perselisihan emosi, salah faham, atau putus antara awak dan pasangan;\n• Loss disebabkan awak langgar terma ini.' },
+      { t: '7. Perubahan & penamatan', b: 'Terma ni boleh dikemaskini bila business berubah; perubahan besar akan diumumkan dalam app. Awak boleh deactivate akaun bila-bila masa. Kami juga reserve hak untuk terminate atau restrict akaun awak kalau awak langgar terma. Tafsiran terakhir terma ni hak kami.' }
+    ]
+  }
+};
+
+function render(lang) {
+  const d = DATA[lang] || DATA['zh-CN'];
+  document.documentElement.lang = lang;
+  document.title = d.title;
+  document.getElementById('title').textContent = d.title;
+  document.getElementById('updated').textContent = d.updated;
+  document.getElementById('intro').textContent = d.intro;
+  const wrap = document.getElementById('sections');
+  wrap.innerHTML = '';
+  for (const s of d.sections) {
+    const h = document.createElement('h2');
+    h.textContent = s.t;
+    const p = document.createElement('p');
+    p.className = 'body';
+    p.textContent = s.b;
+    wrap.appendChild(h);
+    wrap.appendChild(p);
+  }
+  for (const btn of document.querySelectorAll('.lang-switch button')) {
+    btn.classList.toggle('on', btn.dataset.lang === lang);
+  }
+  try { localStorage.setItem('together-legal-lang', lang); } catch (e) {}
+}
+
+const saved = (() => { try { return localStorage.getItem('together-legal-lang'); } catch (e) { return null; } })();
+const navLang = (navigator.language || 'zh-CN');
+let initial = saved
+  || (navLang.startsWith('zh-TW') || navLang.startsWith('zh-HK') ? 'zh-TW'
+   : navLang.startsWith('zh') ? 'zh-CN'
+   : navLang.startsWith('ms') ? 'ms'
+   : navLang.startsWith('en') ? 'en'
+   : 'zh-CN');
+render(initial);
+for (const btn of document.querySelectorAll('.lang-switch button')) {
+  btn.addEventListener('click', () => render(btn.dataset.lang));
+}
+</script>
+</body>
+</html>
