@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Together — Delete Your Account</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #fff5f7;
+    color: #2a1a22;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 24px 80px; }
+  .lang-switch {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .lang-switch button {
+    padding: 8px 16px;
+    border: 1.5px solid #ffc1d8;
+    background: #fff;
+    color: #c2185b;
+    border-radius: 100px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .lang-switch button:hover { background: #fff0f5; }
+  .lang-switch button.on { background: #ff6b9d; color: #fff; border-color: #ff6b9d; }
+  h1 {
+    font-size: 28px; color: #c2185b;
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .meta { color: #b58a99; font-size: 13px; margin: 0 0 24px; }
+  h2 {
+    font-size: 18px; color: #c2185b;
+    margin: 28px 0 10px;
+    font-weight: 600;
+  }
+  p { font-size: 15px; margin: 0 0 12px; }
+  ol, ul { padding-left: 22px; }
+  ol li, ul li { font-size: 15px; margin: 6px 0; }
+  .intro {
+    padding: 16px 20px;
+    background: #fff;
+    border-left: 4px solid #ff6b9d;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .email-box {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #fff0f5;
+    border: 1px solid #ffc1d8;
+    border-radius: 8px;
+    font-family: monospace;
+    color: #c2185b;
+    font-size: 15px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #ffe0ec;
+  }
+  th { background: #fff0f5; color: #c2185b; font-weight: 600; }
+  td:first-child { font-weight: 500; }
+  a { color: #c2185b; }
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid #ffe0ec;
+    font-size: 13px; color: #8b6571;
+    text-align: center;
+  }
+  .footer a { margin: 0 8px; }
+  @media (max-width: 480px) {
+    .wrap { padding: 20px 16px 60px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 16px; }
+    p, ol li, ul li { font-size: 14px; }
+    th, td { font-size: 13px; padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lang-switch">
+    <button data-lang="en" class="on">English</button>
+    <button data-lang="zh-CN">简体中文</button>
+    <button data-lang="zh-TW">繁體中文</button>
+    <button data-lang="ms">B. Melayu</button>
+  </div>
+
+  <h1 id="title"></h1>
+  <p class="meta" id="appLine"></p>
+
+  <div class="intro" id="intro"></div>
+
+  <h2 id="h2InApp"></h2>
+  <ol id="inAppSteps"></ol>
+
+  <h2 id="h2Email"></h2>
+  <p id="emailIntro"></p>
+  <p><span class="email-box">khootaipping@gmail.com</span></p>
+  <p id="emailTemplate"></p>
+
+  <h2 id="h2Data"></h2>
+  <table>
+    <thead>
+      <tr><th id="thType"></th><th id="thAction"></th><th id="thWhen"></th></tr>
+    </thead>
+    <tbody id="dataRows"></tbody>
+  </table>
+
+  <h2 id="h2Note"></h2>
+  <p id="noteBody"></p>
+
+  <div class="footer">
+    <a href="index.html" id="lnkBack"></a> ·
+    <a href="privacy.html" id="lnkPrivacy"></a> ·
+    <a href="terms.html" id="lnkTerms"></a>
+  </div>
+</div>
+
+<script>
+const CONTENT = {
+  'en': {
+    docTitle: 'Together — Delete Your Account',
+    title: 'Delete Your Together Account',
+    appLine: 'Together (the couples companion app) · Developer: Tai Ping Khoo · khootaipping@gmail.com',
+    intro: 'This page tells you how to permanently delete your Together account and all data associated with it. There are two ways: delete from inside the app (fastest) or email us if you no longer have the app installed.',
+    h2InApp: 'Option 1 — Delete from inside the app (recommended)',
+    inAppSteps: [
+      'Open the Together app and sign in to your account.',
+      'Go to <b>Settings</b> (gear icon, bottom-right).',
+      'Scroll to the bottom and tap <b>Delete Account</b>.',
+      'Confirm the deletion. Your account and all data will be removed immediately from our active systems.'
+    ],
+    h2Email: 'Option 2 — Email us',
+    emailIntro: 'If you no longer have access to the app, send us an email and we will delete your account on your behalf within 30 days:',
+    emailTemplate: 'Please include in your email: the email address you used to register, and the subject line "Delete my Together account". We will reply to confirm once the deletion is complete.',
+    h2Data: 'What gets deleted and when',
+    thType: 'Data type',
+    thAction: 'Deleted or kept',
+    thWhen: 'When',
+    dataRows: [
+      ['Account email, nickname, profile, language preference', 'Permanently deleted', 'Within 30 days'],
+      ['Chat messages with your partner', 'Permanently deleted', 'Within 30 days'],
+      ['AI character setup and conversation history', 'Permanently deleted', 'Within 30 days'],
+      ['Room decorations, pets, notes, reminders', 'Permanently deleted', 'Within 30 days'],
+      ['Imported chat-style profile (from Messenger/Instagram/WhatsApp imports)', 'Permanently deleted', 'Within 30 days'],
+      ['Encrypted backups containing your data', 'Purged in the next backup rotation', 'Within 90 days'],
+      ['Anonymized aggregate statistics (e.g. total active users)', 'Retained — cannot identify you', 'Indefinite']
+    ],
+    h2Note: 'Important notes',
+    noteBody: 'Deletion is permanent and cannot be undone. If you have a partner linked to your account, your partner will receive a notification that the couple link has been removed; their own account and data are NOT affected. Anything purchased through Google Play Billing in the future (V1.1+) is processed by Google Play — refund requests for purchases must go through Google Play\'s refund system, not through us.',
+    lnkBack: '← Back',
+    lnkPrivacy: 'Privacy Policy',
+    lnkTerms: 'Terms of Service'
+  },
+
+  'zh-CN': {
+    docTitle: 'Together — 删除账号',
+    title: '删除你的 Together 账号',
+    appLine: 'Together（情侣陪伴 App）· 开发者：Tai Ping Khoo · khootaipping@gmail.com',
+    intro: '本页说明如何永久删除你的 Together 账号及关联数据。两种方式：从 App 内删除（最快），或在已卸载 App 的情况下发邮件联系我们。',
+    h2InApp: '方式一 — 从 App 内删除（推荐）',
+    inAppSteps: [
+      '打开 Together App 并登录账号',
+      '进入 <b>设置</b>（齿轮图标，右下角）',
+      '滚动到底部，点 <b>删除账号</b>',
+      '确认删除。账号及全部数据立即从生产数据库移除'
+    ],
+    h2Email: '方式二 — 发邮件',
+    emailIntro: '如果你已卸载 App 无法操作，请发邮件给我们，我们会在 30 天内代为删除：',
+    emailTemplate: '邮件内请说明：注册时使用的邮箱地址，主题写「Delete my Together account」。删除完成后我们会邮件确认。',
+    h2Data: '删除哪些数据 / 何时删除',
+    thType: '数据类型',
+    thAction: '删除还是保留',
+    thWhen: '何时',
+    dataRows: [
+      ['账号邮箱、昵称、个人资料、语言偏好', '永久删除', '30 天内'],
+      ['和伴侣的聊天记录', '永久删除', '30 天内'],
+      ['AI 角色设置和对话历史', '永久删除', '30 天内'],
+      ['房间装饰、宠物、便签、提醒', '永久删除', '30 天内'],
+      ['导入的聊天风格档案（Messenger/Instagram/WhatsApp 导入）', '永久删除', '30 天内'],
+      ['含你数据的加密备份', '下个备份轮转周期清除', '90 天内'],
+      ['匿名化聚合统计（如总活跃用户数）', '保留 — 无法识别你个人', '长期'],
+    ],
+    h2Note: '重要说明',
+    noteBody: '删除操作永久不可恢复。如果你已绑定情侣关系，对方会收到「情侣关系已解除」的通知，但对方的账号和数据不受影响。未来 V1.1+ 通过 Google Play Billing 购买的内容由 Google Play 处理，退款请通过 Google Play 退款流程，不经过我们。',
+    lnkBack: '← 返回',
+    lnkPrivacy: '隐私政策',
+    lnkTerms: '用户协议'
+  },
+
+  'zh-TW': {
+    docTitle: 'Together — 刪除帳號',
+    title: '刪除你的 Together 帳號',
+    appLine: 'Together（情侶陪伴 App）· 開發者：Tai Ping Khoo · khootaipping@gmail.com',
+    intro: '本頁說明如何永久刪除你的 Together 帳號及關聯資料。兩種方式：從 App 內刪除（最快），或在已解除安裝 App 的情況下寄 email 聯絡我們。',
+    h2InApp: '方式一 — 從 App 內刪除（推薦）',
+    inAppSteps: [
+      '打開 Together App 並登入帳號',
+      '進入 <b>設定</b>（齒輪圖示，右下角）',
+      '捲動到底部，點 <b>刪除帳號</b>',
+      '確認刪除。帳號及全部資料立即從生產資料庫移除'
+    ],
+    h2Email: '方式二 — 寄 email',
+    emailIntro: '若已解除安裝 App 無法操作，請寄 email 給我們，我們會在 30 天內代為刪除：',
+    emailTemplate: 'Email 內請說明：註冊時使用的 email 位址，主旨寫「Delete my Together account」。刪除完成後我們會 email 確認。',
+    h2Data: '刪除哪些資料 / 何時刪除',
+    thType: '資料類型',
+    thAction: '刪除或保留',
+    thWhen: '何時',
+    dataRows: [
+      ['帳號 email、暱稱、個人檔案、語言偏好', '永久刪除', '30 天內'],
+      ['和伴侶的聊天記錄', '永久刪除', '30 天內'],
+      ['AI 角色設定和對話歷史', '永久刪除', '30 天內'],
+      ['房間裝飾、寵物、便籤、提醒', '永久刪除', '30 天內'],
+      ['匯入的聊天風格檔案（Messenger/Instagram/WhatsApp 匯入）', '永久刪除', '30 天內'],
+      ['含你資料的加密備份', '下個備份輪轉週期清除', '90 天內'],
+      ['匿名化聚合統計（如總活躍使用者數）', '保留 — 無法識別你個人', '長期'],
+    ],
+    h2Note: '重要說明',
+    noteBody: '刪除操作永久不可恢復。若你已綁定情侶關係，對方會收到「情侶關係已解除」的通知，但對方的帳號和資料不受影響。未來 V1.1+ 透過 Google Play Billing 購買的內容由 Google Play 處理，退款請透過 Google Play 退款流程，不經過我們。',
+    lnkBack: '← 返回',
+    lnkPrivacy: '隱私政策',
+    lnkTerms: '使用條款'
+  },
+
+  'ms': {
+    docTitle: 'Together — Padam Akaun',
+    title: 'Padam Akaun Together Awak',
+    appLine: 'Together (aplikasi pendamping pasangan) · Pembangun: Tai Ping Khoo · khootaipping@gmail.com',
+    intro: 'Halaman ini menerangkan cara untuk memadam akaun Together awak secara kekal. Ada dua cara: padam dari dalam aplikasi (paling cepat), atau email kami jika awak sudah tiada aplikasi.',
+    h2InApp: 'Cara 1 — Padam dari dalam aplikasi (disyorkan)',
+    inAppSteps: [
+      'Buka aplikasi Together dan log masuk',
+      'Pergi ke <b>Settings</b> (ikon gear, bahagian bawah kanan)',
+      'Skrol ke bawah, tekan <b>Delete Account</b>',
+      'Sahkan padaman. Akaun dan semua data akan dipadam serta-merta dari sistem aktif kami.'
+    ],
+    h2Email: 'Cara 2 — Email kami',
+    emailIntro: 'Jika awak sudah tiada aplikasi, hantar email kepada kami dan kami akan padam akaun awak dalam masa 30 hari:',
+    emailTemplate: 'Dalam email, sertakan: alamat email yang awak guna untuk daftar, dengan subjek "Delete my Together account". Kami akan reply untuk sahkan selepas padaman selesai.',
+    h2Data: 'Data apa yang dipadam dan bila',
+    thType: 'Jenis data',
+    thAction: 'Dipadam atau disimpan',
+    thWhen: 'Bila',
+    dataRows: [
+      ['Email akaun, nama panggilan, profil, pilihan bahasa', 'Dipadam kekal', 'Dalam 30 hari'],
+      ['Mesej chat dengan pasangan awak', 'Dipadam kekal', 'Dalam 30 hari'],
+      ['Setup karakter AI dan sejarah perbualan', 'Dipadam kekal', 'Dalam 30 hari'],
+      ['Hiasan bilik, peliharaan, nota, peringatan', 'Dipadam kekal', 'Dalam 30 hari'],
+      ['Profil gaya chat yang diimport (Messenger/Instagram/WhatsApp)', 'Dipadam kekal', 'Dalam 30 hari'],
+      ['Backup bersulit yang mengandungi data awak', 'Dibersih dalam putaran backup seterusnya', 'Dalam 90 hari'],
+      ['Statistik agregat tanpa nama (cth: jumlah pengguna aktif)', 'Disimpan — tidak boleh kenal pasti awak', 'Tidak terhad'],
+    ],
+    h2Note: 'Nota penting',
+    noteBody: 'Padaman bersifat kekal dan tidak boleh dibuat semula. Jika awak ada pasangan yang terikat dengan akaun awak, pasangan awak akan menerima notifikasi bahawa pautan pasangan telah dipadam; akaun dan data mereka sendiri TIDAK terjejas. Apa-apa pembelian melalui Google Play Billing pada masa depan (V1.1+) diproses oleh Google Play — permohonan bayaran balik mesti melalui sistem refund Google Play, bukan melalui kami.',
+    lnkBack: '← Kembali',
+    lnkPrivacy: 'Dasar Privasi',
+    lnkTerms: 'Terma Perkhidmatan'
+  }
+}
+
+function detectLang() {
+  const saved = localStorage.getItem('together_lang')
+  if (saved && CONTENT[saved]) return saved
+  const nav = (navigator.language || 'en').toLowerCase()
+  if (nav.startsWith('zh-tw') || nav.startsWith('zh-hk') || nav.startsWith('zh-hant')) return 'zh-TW'
+  if (nav.startsWith('zh')) return 'zh-CN'
+  if (nav.startsWith('ms')) return 'ms'
+  return 'en'
+}
+
+function render(lang) {
+  const c = CONTENT[lang]
+  document.title = c.docTitle
+  document.documentElement.lang = lang
+  document.getElementById('title').textContent = c.title
+  document.getElementById('appLine').textContent = c.appLine
+  document.getElementById('intro').textContent = c.intro
+  document.getElementById('h2InApp').textContent = c.h2InApp
+  document.getElementById('inAppSteps').innerHTML = c.inAppSteps.map(s => '<li>' + s + '</li>').join('')
+  document.getElementById('h2Email').textContent = c.h2Email
+  document.getElementById('emailIntro').textContent = c.emailIntro
+  document.getElementById('emailTemplate').textContent = c.emailTemplate
+  document.getElementById('h2Data').textContent = c.h2Data
+  document.getElementById('thType').textContent = c.thType
+  document.getElementById('thAction').textContent = c.thAction
+  document.getElementById('thWhen').textContent = c.thWhen
+  document.getElementById('dataRows').innerHTML = c.dataRows
+    .map(r => '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td></tr>')
+    .join('')
+  document.getElementById('h2Note').textContent = c.h2Note
+  document.getElementById('noteBody').textContent = c.noteBody
+  document.getElementById('lnkBack').textContent = c.lnkBack
+  document.getElementById('lnkPrivacy').textContent = c.lnkPrivacy
+  document.getElementById('lnkTerms').textContent = c.lnkTerms
+
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.lang === lang)
+  })
+}
+
+document.querySelectorAll('.lang-switch button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang
+    localStorage.setItem('together_lang', lang)
+    render(lang)
+  })
+})
+
+render(detectLang())
+</script>
+</body>
+</html>
